@@ -1,6 +1,24 @@
-flowerStick = [11,7,5,10,46,23,16,8]
-random = 3
-#write your code here
-ans = sorted(flowerStick[:random]) 
-ans2 = list(reversed(sorted(flowerStick[random+1:])))
-print(ans+ ans2)
+def ReArrangeArray(arr, len):
+    pos = []
+    neg = []
+    for i in arr:
+        if(i<0): neg.append(i)
+        else: pos.append(i)
+    return neg + pos
+
+
+
+def NumberOfBalls(arr):
+    i = 1
+    curr = 1
+    ans = 0
+    for j in arr:
+        if j < curr:
+            ans = ans + (curr-j)
+        i = i+2
+        curr = curr + i
+    return ans
+
+
+
+    
