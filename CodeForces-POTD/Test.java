@@ -1,11 +1,25 @@
-import java.io.BufferedReader;
-import java.io.FileInputStream;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.util.*;
-class Test {
-    
-    // public static int[] prodDilivery(int[] orderId){
+
+
+
+public int sumOfNonPrimeIndexValues(int[] input1,int input2){
+    int sum = 0;
+    for(int i=0;i<input2; i++){
+        if(!isPrime(i))
+            sum += input1[i];
+    }
+    return sum;
+}
+public boolean isPrime(int n){
+    if(i<=1)return false;
+    for(int i=2;i*i<n;i++){
+        if(n%i==0)
+            return false;
+    }
+    return true;
+}
+
+
+// public static int[] prodDilivery(int[] orderId){
     //     int[] answer = new int[orderId.length];
     //     for(int i=0;i<orderId.length; i++){
     //         int temp = orderId[i];
@@ -109,48 +123,112 @@ class Test {
 
     // }
 
-        public static boolean check(String s1, String s2){
-            if(s1.length()!=s2.length())
-                return false;
-            char[] arr1 = s1.toCharArray();
-            char[] arr2 = s2.toCharArray();
-            for(int i=0;i<s1.length();i++){
-                if(arr1[i]=='*' || arr2[i]=='*')
-                    continue;
-                if(arr1[i]!=arr2[i])
-                    return false;
-            }
-            return true;
-        }
-    public static void main(String[] args) {
-        List<String> inputByLine = new ArrayList<String>();
-        try{
-            // Creates an InputStream
-            FileInputStream file = new FileInputStream("tests.txt");
-            InputStreamReader isr = new InputStreamReader(file);
-            BufferedReader br = new BufferedReader(isr);
-            String line = "";
-            while((line=br.readLine()) != null){
-                inputByLine.add(line.toString());
-            }
-            String arr[] = new String[inputByLine.size()];
-            int i = 0;
-            for(String line2:inputByLine){
-                arr[i++] = line2;
-            }
-            boolean ans = check(arr[0], arr[1]);
-            if(ans){
-                System.out.println("YES");
-            }
-            else{
-                System.out.println("NO");
-            }    
+//         public static boolean check(String s1, String s2){
+//             if(s1.length()!=s2.length())
+//                 return false;
+//             char[] arr1 = s1.toCharArray();
+//             char[] arr2 = s2.toCharArray();
+//             for(int i=0;i<s1.length();i++){
+//                 if(arr1[i]=='*' || arr2[i]=='*')
+//                     continue;
+//                 if(arr1[i]!=arr2[i])
+//                     return false;
+//             }
+//             return true;
+//         }
+//     public static void main(String[] args) {
+//         List<String> inputByLine = new ArrayList<String>();
+//         try{
+//             // Creates an InputStream
+//             FileInputStream file = new FileInputStream("tests.txt");
+//             InputStreamReader isr = new InputStreamReader(file);
+//             BufferedReader br = new BufferedReader(isr);
+//             String line = "";
+//             while((line=br.readLine()) != null){
+//                 inputByLine.add(line.toString());
+//             }
+//             String arr[] = new String[inputByLine.size()];
+//             int i = 0;
+//             for(String line2:inputByLine){
+//                 arr[i++] = line2;
+//             }
+//             boolean ans = check(arr[0], arr[1]);
+//             if(ans){
+//                 System.out.println("YES");
+//             }
+//             else{
+//                 System.out.println("NO");
+//             }    
 
-            isr.close();
-        }  
-        catch(IOException e){
-            e.printStackTrace();
-        } 
+//             isr.close();
+//         }  
+//         catch(IOException e){
+//             e.printStackTrace();
+//         } 
     
-    }
-}
+//     }
+
+
+
+// }
+
+
+
+// int findRepNumber(int[] input1, int input2){
+//     HashMap<Integer,Boolean> map = new HashMap<>();
+   
+//     int neg = 0;
+//     for(int i=input2-1; i>=0;i--){
+//         if(input1[i] <=0 ){
+//             neg++;
+//             continue;
+//         }
+//         if(map.containsKey(input1[i]))
+//             return input1[i];
+//         map.put(input1[i], true);
+//     }
+//     if(neg == input2)
+//         return 0;
+//     return input1[input2-1];
+// }
+
+
+// int findStringWeight(int[] input1, String input2){
+    
+//     int ans = 1;
+//     String str[] = input2.split(" ");
+//     for(int i=0;i<str.length;i++){
+//         ans = ans * findWeight(input1, str[i].toLowerCase());
+//     }
+//     return ans;
+
+// }
+
+// int findWeight(int[] input1, String str){
+//     char[] ch  = str.toCharArray();
+//     int sum = 0;
+//     for(int i=0;i<ch.length;i++){
+//         int curr = input1[ch[i] - 97];
+//         sum += curr;
+//         if((i==0 || i== ch.length-1) && curr < 0)
+//             sum += ch[i]-97+1;
+//     }
+//     return sum;
+// }
+
+
+// public String StringDecoder(String input1){
+//     char[] ch = input1.toCharArray();
+//     int cnt = 0;
+//     String ans = "";
+//     for(int i=0;i<ch.length;i++){
+//         if(ch[i]==1){
+//             ans +=  (char)(65+(26 - cnt));
+//             cnt=0;
+//         }
+//         else{
+//             cnt++;
+//         }
+//     }
+//     return ans;
+// }
